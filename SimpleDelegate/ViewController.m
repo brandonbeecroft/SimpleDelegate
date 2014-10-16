@@ -7,11 +7,12 @@
 //
 
 #import "ViewController.h"
-#import "CustomTableViewCell.h"
 
-@interface ViewController ()
+@interface ViewController () 
 
 @property (nonatomic, assign) NSInteger value;
+@property (nonatomic, strong) CustomTableViewCell *customCell;
+@property (nonatomic, strong) UITableViewCell *cell;
 
 @end
 
@@ -31,25 +32,35 @@
 
     switch (indexPath.row) {
         case 0: {
-            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class])];
-            if (!cell) {
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass([UITableViewCell class])];
+            self.cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class])];
+            if (!self.cell) {
+                self.cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass([UITableViewCell class])];
             }
-            cell.textLabel.text = [@(self.value) stringValue];
-            return cell;
+            self.cell.textLabel.text = [@(self.value) stringValue];
+            return self.cell;
             break;
         }
         case 1: {
-            CustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([CustomTableViewCell class])];
-            if (!cell) {
-                cell = [[CustomTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass([CustomTableViewCell class])];
+            self.customCell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([CustomTableViewCell class])];
+            if (!self.customCell) {
+                self.customCell = [[CustomTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:NSStringFromClass([CustomTableViewCell class])];
             }
-            return cell;
+            self.customCell.delegate = self;
+            return self.customCell;
             break;
         }
     }
     
     return nil;
+}
+
+-(void)incrementRowValue {
+
+    // function here to show value incremented by 1
+    NSLog(@"row incremented");
+    self.cell.textLabel.text = [@(self.value++) stringValue];
+
+
 }
 
 @end

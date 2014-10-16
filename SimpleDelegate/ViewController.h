@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomTableViewCell.h"
 
-@interface ViewController : UITableViewController
+@interface ViewController : UITableViewController <CustomTableCellDelegate>
 
 @end

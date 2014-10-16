@@ -30,6 +30,16 @@
 
 - (IBAction)selectedAdd:(id)sender {
 
+    if ([self.delegate respondsToSelector:@selector(incrementRowValue)]) {
+        [self.delegate incrementRowValue];
+    }
+
 }
 
 @end
+
+
+
+
+
+//[self.delegate drawerView:self didSelectButtonIndex:[sender tag]];

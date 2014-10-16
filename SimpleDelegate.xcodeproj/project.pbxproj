@@ -408,6 +408,7 @@
 				71BF97A719EF307900650D8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		71BF97A819EF307900650D8F /* Build configuration list for PBXNativeTarget "SimpleDelegateTests" */ = {
 			isa = XCConfigurationList;
@@ -416,6 +417,7 @@
 				71BF97AA19EF307900650D8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
